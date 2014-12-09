@@ -1,0 +1,13 @@
+<template name="currentMemory">
+    <div class="col-md-6 col-md-offset-3 jumbotron">
+        <div class="row text-center">
+            <p><strong>{{text}}</strong></p>
+        </div>
+        <div class="row text-center">
+            <button class="btn btn-primary" onClick="boost()">This helped me remember!</button>
+            <button class="btn btn-danger" onClick="next()">Hm, that's not it. Any other ideas?</button>
+            <br/>
+            <button class="btn btn-link" onClick="flag()">I found this to be offensive!</button>
+        </div>
+    </div>
+</template>
