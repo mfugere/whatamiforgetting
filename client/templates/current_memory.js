@@ -1,11 +1,12 @@
-var memories = [
-    {
-        id: 1,
-        text: "Pick up something at the supermarket",
-        added: "20141208",
-        upvotes: 3
-    }
-];
 Template.currentMemory.helpers({
-    memories: memories
+    currentMemory: function() {
+        var randomEntry = Math.floor(Math.random() * Memories.find().count());
+        return Memories.find().fetch()[randomEntry];
+    }
+});
+
+Template.currentMemory.events({
+    "click .flag": function() {
+        Memories.update(this._id, { $set: { flagged: true }});
+    }
 });
