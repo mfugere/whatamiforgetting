@@ -3,7 +3,12 @@ Meteor.methods({
         if (read === null) {
             read = [];
         }
-        var randomEntry = Math.floor(Math.random() * Memories.find({ flagged: false, _id: { $nin: read }}).count());
-        return Memories.find({ flagged: false, _id: { $nin: read }}).fetch()[randomEntry];
+        var randomIndex = Math.floor(Math.random() * Memories.find({ flagged: false, _id: { $nin: read }}).count());
+        var randomValue = Memories.find({ flagged: false, _id: { $nin: read }}).fetch()[randomIndex];
+        if (randomValue === undefined && read.length > 0) {
+            throw new Meteor.Error("no-unread", "No unread values were found.");
+        } else {
+            return randomValue;
+        }
     }
 });

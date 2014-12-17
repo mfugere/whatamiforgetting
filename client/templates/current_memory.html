@@ -1,15 +1,18 @@
 <template name="currentMemory">
-    {{#with memory}}
-        <div class="col-md-6 col-md-offset-3 jumbotron">
-            <div class="row text-center">
-                <p><strong>{{text}}</strong></p>
-            </div>
-            <div class="row text-center">
-                <button class="btn btn-primary boost">This helped me remember!</button>
-                <button class="btn btn-danger next">Hm, that's not it. Any other ideas?</button>
-                <br/>
-                <button class="btn btn-link flag">I found this to be offensive!</button>
-            </div>
+    <div class="col-md-6 col-md-offset-3 jumbotron">
+        <div class="row text-center">
+            <p><strong>{{memory.text}}</strong></p>
         </div>
-    {{/with}}
+        <div class="row text-center">
+            <button class="btn btn-primary boost">This helped me remember!</button>
+            <button class="btn btn-danger next">Hm, that's not it. Any other ideas?</button>
+            <br/>
+            <button class="btn btn-link flag">I found this to be offensive!</button>
+        </div>
+        {{#if noUnread}}
+            <div class="row alert alert-info" role="alert">
+                <p>I don't have anymore memories for you! Click again to review everything.</p>
+            </div>
+        {{/if}}
+    </div>
 </template>
