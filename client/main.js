@@ -2,7 +2,6 @@ if (Meteor.isClient) {
     Meteor.startup(function() {
         Session.set("read", []);
     });
-    Meteor.subscribe("memories");
     Meteor.call("randomMemory", Session.get("read"), function (error, response) {
         if (error) {
             console.error(error); // TODO: replace with "errorMessage" Session variable so it can be displayed.
