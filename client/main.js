@@ -1,14 +1,10 @@
 if (Meteor.isClient) {
     Meteor.startup(function() {
         Session.set("read", []);
+        Session.set("no-unread", false);
     });
-    Meteor.call("randomMemory", Session.get("read"), function (error, response) {
-        if (error) {
-            console.error(error); // TODO: replace with "errorMessage" Session variable so it can be displayed.
-        } else {
-            Session.set("memory", response);
-            Session.get("no-unread", false);
-        }
+    Meteor.subscribe("memories", function() {
+        Session.set("memory", Memories.findOne());
     });
 }
 
