@@ -1,0 +1,10 @@
+<template name="adminView">
+    <section class="container">
+        <h3 class="text-center">Posts Flagged for Review</h3>
+    </section>
+    <section class="container">
+        {{#each memories}}
+            {{> flagged}}
+        {{/each}}
+    </section>
+</template>

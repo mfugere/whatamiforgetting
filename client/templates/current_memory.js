@@ -24,14 +24,22 @@ Template.currentMemory.helpers({
 
 Template.currentMemory.events({
     "click .boost": function() {
-        Memories.update(Session.get("memory")._id, { $inc: { upvotes: 1 }});
+        Meteor.call("upvoteMemory", Session.get("memory")._id, function(error) {
+            if (error) {
+                console.log(error);
+            }
+        });
         Session.set("memory", Memories.findOne({ _id: { $nin: Session.get("read") }}));
     },
     "click .next": function() {
         Session.set("memory", Memories.findOne({ _id: { $nin: Session.get("read") }}));
     },
     "click .flag": function() {
-        Memories.update(Session.get("memory")._id, { $set: { flagged: true }});
+        Meteor.call("flagMemory", Session.get("memory")._id, function(error) {
+            if (error) {
+                console.log(error);
+            }
+        });
         Session.set("memory", Memories.findOne({ _id: { $nin: Session.get("read") }}));
     }
 });

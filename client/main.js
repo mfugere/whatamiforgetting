@@ -3,9 +3,6 @@ if (Meteor.isClient) {
         Session.set("read", []);
         Session.set("no-unread", false);
     });
-    Meteor.subscribe("memories", function() {
-        Session.set("memory", Memories.findOne());
-    });
 }
 
 if (Meteor.isServer) {

@@ -1,0 +1,32 @@
+<template name="userView">
+    <section class="container">
+        {{> currentMemory}}
+    </section>
+
+    <section class="container">
+        {{> newMemory}}
+
+        <div class="row">&nbsp;</div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Tips for submitting new memories:</div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>Don't get too specific, if possible. Often, we only need a hint to ignite our memories!</li>
+                            <li>Don't be too general either. "Go somewhere to do something" doesn't help anyone, really.
+                            </li>
+                            <li>Word your memory as a command, as though you're writing a to-do list (e.g. "Pick up Bart",
+                                not "To pick up Bart"/"I need to pick up Bart"/etc.).
+                            </li>
+                            <li>Refrain from using obscene/offensive language. We would like to maintain a safe-for-work
+                                environment.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
