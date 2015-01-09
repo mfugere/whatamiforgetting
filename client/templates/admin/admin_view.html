@@ -5,6 +5,10 @@
     <section class="container">
         {{#each memories}}
             {{> flagged}}
+        {{else}}
+            <div class="col-md-6 col-md-offset-3 alert alert-info text-center">
+                <p>There are no posts flagged at this time.</p>
+            </div>
         {{/each}}
     </section>
 </template>
