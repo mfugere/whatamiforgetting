@@ -3,6 +3,9 @@ Template.flagged.events({
         Meteor.call("unflagMemory", this._id, function(error) {
             if (error) {
                 console.error(error);
+                Session.set("error", error);
+            } else {
+                Session.set("message", { message: "This message is no longer flagged.", level: "success" });
             }
         });
     },
@@ -10,6 +13,9 @@ Template.flagged.events({
         Meteor.call("deleteMemory", this._id, function(error) {
             if (error) {
                 console.error(error);
+                Session.set("error", error);
+            } else {
+                Session.set("message", { message: "Message deleted successfully.", level: "success" });
             }
         });
     }

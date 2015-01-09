@@ -6,7 +6,11 @@ Meteor will be my tentative framework of choice for this endeavor.
 
 Known Tasks
 -----------
-* Add "success" messaging, and possibly abstract away from Meteor.Error for Session storage of all messages.
+* Put "error" and "message" helpers in their own shared directory.
+* Change "none" errors to 0 and "none" in the reason.
+* See if an "else" case can be applied to the admin view, when no flagged memories exist.
+* Store messages and possibly errors in database.
 * Secure admin view, either by implementing and just having one (admin), or somehow restricting it to certain IPs.
+* Allow users to view memories in a random order, rather than by upvotes.
 * Deploy app (need secure admin view before this) and add some additional starter memories.
 * Make copyright suck less.

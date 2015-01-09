@@ -4,9 +4,10 @@ Template.newMemory.events({
         Meteor.call("addMemory", event.target.text.value, function(error) {
             if (error) {
                 Session.set("error", error);
-                console.error(error); // TODO: replace with visible error messaging.
+                console.error(error);
             } else {
                 event.target.text.value = "";
+                Session.set("message", { message: "Memory added successfully!", level: "success" });
             }
         });
     }

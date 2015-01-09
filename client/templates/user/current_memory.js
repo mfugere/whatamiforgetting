@@ -1,5 +1,5 @@
 Template.currentMemory.helpers({
-    memory: function() {
+    memory: function () {
         var data = Session.get("memory");
         var read = Session.get("read");
         if (data) {
@@ -11,7 +11,10 @@ Template.currentMemory.helpers({
             // Clear out the "read" Array if everything has been read.
             if (read && read.length >= Memories.find().count()) {
                 Session.set("read", []);
-                Session.set("error", new Meteor.Error("info-no_unread", "I don't have anymore memories for you! Keep browsing if you'd like to review everything."));
+                Session.set("message", {
+                    message: "I don't have anymore memories for you! Keep browsing if you'd like to review everything.",
+                    level: "info"
+                });
             }
         }
         return data;
@@ -19,8 +22,8 @@ Template.currentMemory.helpers({
 });
 
 Template.currentMemory.events({
-    "click .boost": function() {
-        Meteor.call("upvoteMemory", Session.get("memory")._id, function(error) {
+    "click .boost": function () {
+        Meteor.call("upvoteMemory", Session.get("memory")._id, function (error) {
             if (error) {
                 console.error(error);
                 Session.set("error", error);
@@ -28,14 +31,16 @@ Template.currentMemory.events({
         });
         Session.set("memory", Memories.findOne({ _id: { $nin: Session.get("read") }}));
     },
-    "click .next": function() {
+    "click .next": function () {
         Session.set("memory", Memories.findOne({ _id: { $nin: Session.get("read") }}));
     },
-    "click .flag": function() {
-        Meteor.call("flagMemory", Session.get("memory")._id, function(error) {
+    "click .flag": function () {
+        Meteor.call("flagMemory", Session.get("memory")._id, function (error) {
             if (error) {
                 console.error(error);
                 Session.set("error", error);
+            } else {
+                Session.set("message", { message: "Thank you, this message has been flagged for review.", level: "success" });
             }
         });
         Session.set("memory", Memories.findOne({ _id: { $nin: Session.get("read") }}));
