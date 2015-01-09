@@ -1,7 +1,7 @@
 Meteor.methods({
     addMemory: function(text) {
         if (Memories.findOne({ text: text })) {
-            throw new Meteor.Error("memory-exists", "A memory already exists with this exact text!");
+            throw new Meteor.Error("warning-memory_exists", "A memory already exists with this exact text!");
         } else {
             Memories.insert({
                 text: text,

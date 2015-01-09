@@ -1,1 +1,24 @@
-/* CSS declarations go here */
+@keyframes fadeOut {
+    from {
+        opacity: 1.0;
+    }
+    to {
+        opacity: 0.0;
+    }
+}
+@-webkit-keyframes fadeOut {
+    from {
+        opacity: 1.0;
+    }
+    to {
+        opacity: 0.0;
+    }
+}
+.fade-out {
+    animation: fadeOut 1s linear 4s;
+    -webkit-animation: fadeOut 1s linear 4s;
+}
+.message {
+    position: fixed;
+    z-index: 1;
+}
