@@ -13,9 +13,9 @@ Template.registerHelper("error", function () {
             break;
     }
     return {
-        show: errorRef.error !== "none",
+        show: errorRef.reason !== "none",
         level: level,
-        name: errorRef.error,
+        code: errorRef.error,
         description: errorRef.reason
     };
 });

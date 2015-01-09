@@ -6,8 +6,6 @@ Meteor will be my tentative framework of choice for this endeavor.
 
 Known Tasks
 -----------
-* Put "error" and "message" helpers in their own shared directory.
-* Change "none" errors to 0 and "none" in the reason.
 * See if an "else" case can be applied to the admin view, when no flagged memories exist.
 * Store messages and possibly errors in database.
 * Secure admin view, either by implementing and just having one (admin), or somehow restricting it to certain IPs.
