@@ -7,5 +7,6 @@ Meteor will be my tentative framework of choice for this endeavor.
 Known Tasks
 -----------
 * Allow users to view memories in a random order, rather than by upvotes.
-* Deploy app (need secure admin view before this) and add some additional starter memories.
+* Deploy app and add some additional starter memories.
 * Make copyright suck less.
+* "Jazz up" site CSS.
