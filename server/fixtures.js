@@ -24,3 +24,7 @@ if (Memories.find().count() === 0) {
         flagged: true
     });
 }
+
+if (Meteor.users.find().count() === 0) {
+    Accounts.createUser({ username: "admin", password: "password", profile: { logins: 0 }});
+}

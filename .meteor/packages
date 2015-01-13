@@ -7,3 +7,4 @@ meteor-platform
 mizzao:bootstrap-3
 mrt:modernizr-meteor
 iron:router
+accounts-password

@@ -52,5 +52,14 @@ Meteor.methods({
                 return 0;
             }
         });
+    },
+    incLogins: function (id) {
+        Meteor.users.update(id, { $inc: { "profile.logins": 1 }}, {}, function (error, affected) {
+            if (error) {
+                throw error;
+            } else {
+                return affected;
+            }
+        });
     }
 });
