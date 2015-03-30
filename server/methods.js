@@ -3,6 +3,9 @@ Meteor.methods({
         if (Memories.findOne({ text: text })) {
             throw new Meteor.Error(400, "A memory already exists with this exact text!");
         } else {
+        	if (text === "") {
+        		throw new Meteor.Error(400, "A memory cannot be blank.");
+        	}
             Memories.insert({
                 text: text,
                 added: new Date().toDateString(),
