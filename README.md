@@ -8,5 +8,5 @@ Known Tasks
 -----------
 * Allow users to view memories in a random order, rather than by upvotes.
 * Deploy app and add some additional starter memories.
-* Make copyright suck less.
+* Add typeahead to find similar memories before submitting.
 * "Jazz up" site CSS.
