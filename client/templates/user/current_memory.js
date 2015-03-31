@@ -44,5 +44,10 @@ Template.currentMemory.events({
             }
         });
         Session.set("memory", Memories.findOne({ _id: { $nin: Session.get("read") }}));
+    },
+    "change input[name='orders']": function(event) {
+        Meteor.subscribe("memoriesBy" + event.target.value, function () {
+            Session.set("memory", Memories.findOne());
+        });
     }
 });
