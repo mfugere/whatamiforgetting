@@ -3,6 +3,7 @@ if (Meteor.isClient) {
         Session.set("read", []);
         Session.set("error", new Meteor.Error(0, "none"));
         Session.set("message", { message: "none", level: "" });
+        Session.set("shuffle", false);
         Tracker.autorun(function () {
             if (Session.get("error").error !== "none") {
                 Meteor.setTimeout(function () {

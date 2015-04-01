@@ -32,7 +32,12 @@ Template.currentMemory.events({
         Session.set("memory", Memories.findOne({ _id: { $nin: Session.get("read") }}));
     },
     "click .next": function () {
-        Session.set("memory", Memories.findOne({ _id: { $nin: Session.get("read") }}));
+        if (Session.get("shuffle")) {
+            var r = Math.floor(Math.random() * (Memories.find().count() - Session.get("read").length));
+            Session.set("memory", Memories.findOne({ _id: { $nin: Session.get("read") }}, { skip: r, limit: 1 }));
+        } else {
+            Session.set("memory", Memories.findOne({ _id: { $nin: Session.get("read") }}));
+        }
     },
     "click .flag": function () {
         Meteor.call("flagMemory", Session.get("memory")._id, function (error) {
@@ -46,8 +51,16 @@ Template.currentMemory.events({
         Session.set("memory", Memories.findOne({ _id: { $nin: Session.get("read") }}));
     },
     "change input[name='orders']": function(event) {
+        Session.set("read", []);
+        Session.set("shuffle", false);
         Meteor.subscribe("memoriesBy" + event.target.value, function () {
             Session.set("memory", Memories.findOne());
         });
+    },
+    "click .shuffle": function() {
+        Session.set("read", []);
+        Session.set("shuffle", true);
+        var r = Math.floor(Math.random() * Memories.find().count());
+        Session.set("memory", Memories.findOne({}, { skip: r, limit: 1 }));
     }
 });

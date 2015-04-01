@@ -6,7 +6,6 @@ Meteor will be my tentative framework of choice for this endeavor.
 
 Known Tasks
 -----------
-* Allow users to view memories in a random order, rather than by upvotes.
+* Memory tags and filtering.
 * Deploy app and add some additional starter memories.
-* Add typeahead to find similar memories before submitting.
 * "Jazz up" site CSS.
