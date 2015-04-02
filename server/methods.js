@@ -64,5 +64,32 @@ Meteor.methods({
                 return affected;
             }
         });
+    },
+    pushTag: function (id, tagName) {
+        var regex = /[a-z]+/;
+        if (!tagName) {
+            throw new Meteor.Error(400, "A tag cannot be blank.");
+        } else if (regex.exec(tagName) != tagName) {
+            throw new Meteor.Error(400, "A tag must be one word, no numbers or symbols.");
+        } else if (Memories.findOne({ _id: id, tags: tagName })) {
+            throw new Meteor.Error(400, "This memory already has this tag!");
+        } else {
+            Memories.update(id, { $push: { "tags": tagName }}, {}, function (error, affected) {
+            if (error) {
+                throw error;
+            } else {
+                return affected;
+            }
+        });
+        }
+    },
+    pullTag: function (id, tagName) {
+        Memories.update(id, { $pull: { "tags": tagName }}, { multi: true }, function (error, affected) {
+            if (error) {
+                throw error;
+            } else {
+                return affected;
+            }
+        });
     }
 });

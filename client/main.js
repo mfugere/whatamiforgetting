@@ -1,6 +1,7 @@
 if (Meteor.isClient) {
     Meteor.startup(function () {
         Session.set("read", []);
+        Session.set("filters", []);
         Session.set("error", new Meteor.Error(0, "none"));
         Session.set("message", { message: "none", level: "" });
         Session.set("shuffle", false);

@@ -6,6 +6,5 @@ Meteor will be my tentative framework of choice for this endeavor.
 
 Known Tasks
 -----------
-* Memory tags and filtering.
-* Deploy app and add some additional starter memories.
-* "Jazz up" site CSS.
+* Deploy app
+* "Jazz up" site CSS

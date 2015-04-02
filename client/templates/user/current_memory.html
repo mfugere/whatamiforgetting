@@ -13,11 +13,35 @@
             <button class="btn btn-default shuffle">Shuffle!</button>
             <strong>&nbsp;Sort by:&nbsp;</strong>
             <label class="radio-inline">
-                <input type="radio" name="orders" value="Date" checked="true">Date
+                <input type="radio" name="orders" value="added" checked="true">Date
             </label>
             <label class="radio-inline">
-                <input type="radio" name="orders" value="Upvotes">Upvotes
+                <input type="radio" name="orders" value="upvotes">Upvotes
             </label>
+        </div>
+        <div class="row text-center">
+            {{#each memory.tags}}
+                <label class="label label-default tag {{filtered this}}">
+                    <span class="tag-name">{{this}}</span>&nbsp;
+                    <a class="remove-tag">&times;</a>
+                </label>&nbsp;
+            {{/each}}
+        </div>
+        <div class="row">
+            <form class="new-tag">
+                <div class="text-center input-group">
+                    <input class="form-control" name="tag" type="text" list="tags"
+                        placeholder="Tag this memory (single words only, no numbers or symbols)" autocomplete="off">
+                    <datalist id="tags">
+                        {{#each tags}}
+                            <option>{{this}}</option>
+                        {{/each}}
+                    </datalist>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default addtag">Add</button>
+                    </span>
+                </div>
+            </form>
         </div>
     </div>
 </template>

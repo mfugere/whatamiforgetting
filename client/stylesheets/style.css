@@ -22,3 +22,16 @@
     position: fixed;
     z-index: 1;
 }
+
+a.remove-tag {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+a.remove-tag:hover {
+    color: #bbb;
+    text-decoration: none;
+}
+label.tag.filter-on {
+    background-color:#55c;
+}

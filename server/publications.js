@@ -1,9 +1,7 @@
-Meteor.publish("memoriesByDate", function() {
-    return Memories.find({ flagged: false }, { sort: { added: -1 }});
-});
-
-Meteor.publish("memoriesByUpvotes", function() {
-    return Memories.find({ flagged: false }, { sort: { upvotes: -1 }});
+Meteor.publish("memoriesBy", function(type) {
+	var specifier = { sort: {}};
+	specifier["sort"][type] = -1;
+    return Memories.find({ flagged: false }, specifier);
 });
 
 Meteor.publish("flagged", function() {
