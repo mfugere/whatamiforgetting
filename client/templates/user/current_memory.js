@@ -129,7 +129,11 @@ Template.currentMemory.events({
             var tagName = (e.classList.contains("tag")) ? e.firstElementChild.textContent : e.textContent;
             var filters = Session.get("filters");
             if (filters.indexOf(tagName) === -1) {
-                filters.push(tagName);
+                if (Memories.find({ tags: tagName }).count() === 1) {
+                    Session.set("message", { message: "There are no other memories with this tag!", level: "info" });
+                } else {
+                    filters.push(tagName);
+                }
             } else {
                 filters.splice(filters.indexOf(tagName), 1);
             }

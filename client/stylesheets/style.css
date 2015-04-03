@@ -1,3 +1,15 @@
+* {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+body {
+    background-color: #eef;
+}
+
+.jumbotron, .panel {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
 @keyframes fadeOut {
     from {
         opacity: 1.0;
@@ -32,6 +44,41 @@ a.remove-tag:hover {
     color: #bbb;
     text-decoration: none;
 }
+label.tag {
+    margin: 2px;
+    background-color: #669;
+}
 label.tag.filter-on {
-    background-color:#55c;
+    background-color:#66c;
+}
+
+.btn-default {
+    background-color: #ccc;
+}
+.btn-default:hover {
+    background-color: #eee;
+}
+.btn-primary {
+    background-color: #669;
+}
+.btn-primary:hover {
+    background-color: #66c;
+}
+.btn-success {
+    background-color: #699;
+}
+.btn-success:hover {
+    background-color: #6cc;
+}
+.btn-danger {
+    background-color: #969;
+}
+.btn-danger:hover {
+    background-color: #c6c;
+}
+.btn-link {
+    color: #669;
+}
+.btn-link:hover {
+    color: #66c;
 }
