@@ -7,7 +7,7 @@ if (Memories.find().count() === 0) {
         tags: []
     });
     Memories.insert({
-        text: "Read framework documentation",
+        text: "Take my medication",
         added: new Date(),
         upvotes: 0,
         flagged: false,
