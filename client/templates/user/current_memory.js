@@ -144,5 +144,15 @@ Template.currentMemory.events({
             }
             Session.set("filters", filters);
         }
+    },
+    "click .options-toggle .btn": function(event) {
+        var classes = event.target.firstElementChild.classList;
+        if (classes.contains("glyphicon-chevron-down")) {
+            classes.remove("glyphicon-chevron-down");
+            classes.add("glyphicon-chevron-up");
+        } else {
+            classes.remove("glyphicon-chevron-up");
+            classes.add("glyphicon-chevron-down");
+        }
     }
 });

@@ -7,4 +7,3 @@ Meteor will be my tentative framework of choice for this endeavor.
 Known Tasks
 -----------
 * Deploy app
-* "Jazz up" site CSS

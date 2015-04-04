@@ -1,13 +1,19 @@
 * {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
+header {
+    color: #669;
+}
 body {
     background-color: #eef;
 }
 
-.jumbotron, .panel {
+.container .jumbotron, .panel {
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #bbb;
+}
+.container .jumbotron, .panel, .btn, input {
+    border-radius: 3px;
 }
 
 @keyframes fadeOut {
@@ -33,6 +39,24 @@ body {
 .message {
     position: fixed;
     z-index: 1;
+    color: #669;
+    border: 1px solid #bbb;
+}
+.message.alert-warning {
+    background-color: #efc;
+}
+.message.alert-error {
+    background-color: #fcc;
+}
+.message.alert-success {
+    background-color: #cfc;
+}
+.message.alert-info {
+    background-color: #ccf;
+}
+
+.options-toggle .btn {
+    text-decoration: none;
 }
 
 a.remove-tag {
@@ -49,36 +73,45 @@ label.tag {
     background-color: #669;
 }
 label.tag.filter-on {
-    background-color:#66c;
+    background-color:#69f;
+}
+form.new-tag {
+    margin-top: 2px;
 }
 
-.btn-default {
-    background-color: #ccc;
+.btn-default, .btn-default:focus, .panel .panel-heading {
+    background-color: #ccd;
 }
 .btn-default:hover {
-    background-color: #eee;
+    background-color: #eef;
 }
-.btn-primary {
+.btn-primary, .btn-primary:focus {
     background-color: #669;
 }
 .btn-primary:hover {
     background-color: #66c;
 }
-.btn-success {
+.btn-success, .btn-success:focus {
     background-color: #699;
 }
 .btn-success:hover {
     background-color: #6cc;
 }
-.btn-danger {
+.btn-danger, .btn-danger:focus {
     background-color: #969;
 }
 .btn-danger:hover {
     background-color: #c6c;
 }
-.btn-link {
+.btn-link, .btn-link:focus, a.footer-link {
     color: #669;
 }
-.btn-link:hover {
+.btn-link:hover, a.footer-link:hover {
     color: #66c;
+}
+.btn-link:focus, .btn-link:active {
+    outline: none;
+}
+input[type="radio"]:active {
+    background-color: black;
 }
