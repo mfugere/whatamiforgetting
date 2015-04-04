@@ -51,7 +51,7 @@ body {
 .message.alert-success {
     background-color: #cfc;
 }
-.message.alert-info {
+.alert-info {
     background-color: #ccf;
 }
 

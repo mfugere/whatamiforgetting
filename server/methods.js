@@ -5,23 +5,24 @@ Meteor.methods({
         } else {
         	if (text === "") {
         		throw new Meteor.Error(400, "A memory cannot be blank.");
-        	}
-            Memories.insert({
-                text: text,
-                added: new Date().toDateString(),
-                upvotes: 0,
-                flagged: false
-            }, function (error, id) {
-                if (error) {
-                    throw error;
-                } else {
-                    return id;
-                }
-            });
+        	} else {
+                return Memories.insert({
+                    text: text,
+                    added: new Date(),
+                    upvotes: 0,
+                    flagged: false
+                }, function (error, id) {
+                    if (error) {
+                        throw error;
+                    } else {
+                        return id;
+                    }
+                });
+            }
         }
     },
     upvoteMemory: function (id) {
-        Memories.update(id, { $inc: { upvotes: 1 }}, {}, function (error, affected) {
+        return Memories.update(id, { $inc: { upvotes: 1 }}, {}, function (error, affected) {
             if (error) {
                 throw error;
             } else {
@@ -30,7 +31,7 @@ Meteor.methods({
         });
     },
     flagMemory: function (id) {
-        Memories.update(id, { $set: { flagged: true }}, {}, function (error, affected) {
+        return Memories.update(id, { $set: { flagged: true }}, {}, function (error, affected) {
             if (error) {
                 throw error;
             } else {
@@ -39,7 +40,7 @@ Meteor.methods({
         });
     },
     unflagMemory: function (id) {
-        Memories.update(id, { $set: { flagged: false }}, {}, function (error, affected) {
+        return Memories.update(id, { $set: { flagged: false }}, {}, function (error, affected) {
             if (error) {
                 throw error;
             } else {
@@ -48,7 +49,7 @@ Meteor.methods({
         });
     },
     deleteMemory: function (id) {
-        Memories.remove(id, function (error) {
+        return Memories.remove(id, function (error) {
             if (error) {
                 throw error;
             } else {
@@ -57,7 +58,7 @@ Meteor.methods({
         });
     },
     incLogins: function (id) {
-        Meteor.users.update(id, { $inc: { "profile.logins": 1 }}, {}, function (error, affected) {
+        return Meteor.users.update(id, { $inc: { "profile.logins": 1 }}, {}, function (error, affected) {
             if (error) {
                 throw error;
             } else {
@@ -74,7 +75,7 @@ Meteor.methods({
         } else if (Memories.findOne({ _id: id, tags: tagName })) {
             throw new Meteor.Error(400, "This memory already has this tag!");
         } else {
-            Memories.update(id, { $push: { "tags": tagName }}, {}, function (error, affected) {
+            return Memories.update(id, { $push: { "tags": tagName }}, {}, function (error, affected) {
             if (error) {
                 throw error;
             } else {
@@ -84,7 +85,7 @@ Meteor.methods({
         }
     },
     pullTag: function (id, tagName) {
-        Memories.update(id, { $pull: { "tags": tagName }}, { multi: true }, function (error, affected) {
+        return Memories.update(id, { $pull: { "tags": tagName }}, { multi: true }, function (error, affected) {
             if (error) {
                 throw error;
             } else {
