@@ -16,6 +16,9 @@ if (Meteor.isClient) {
                     Session.set("message", { message: "none", level: "" });
                 }, 5000);
             }
+            if (Session.get("filters").length === 0 && Memories.find().count() > Session.get("limit")) {
+                Session.set("limit", Memories.find().count());
+            }
         });
     });
 }

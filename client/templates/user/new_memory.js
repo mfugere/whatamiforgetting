@@ -8,7 +8,6 @@ Template.newMemory.events({
             } else {
                 event.target.text.value = "";
                 Session.set("message", { message: "Memory added successfully!", level: "success" });
-                if (Session.get("filters").length === 0) Session.set("limit", Session.get("limit") + 1);
             }
         });
     }
